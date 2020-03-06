@@ -37,10 +37,10 @@ export default class Uploader extends Component {
       console.log(res);
       
       const {
-        data: { putURL }
+        data: { putURL: signedURL }
       } = res;
       axios
-        .put(putURL, file, options)
+        .put(signedURL, file)
         .then(res => {
           this.setState({message:'Upload Successful'})
           setTimeout(()=>{

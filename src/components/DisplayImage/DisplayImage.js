@@ -15,7 +15,11 @@ export default class DisplayImage extends Component {
         ContentType: 'image/jpeg'
       }
     };
-    axios.get(generateGetUrl, options).then(res => {
+
+    
+    axios.get(generateGetUrl, {}, options).then(res => {
+      console.log(`IN GETURL`);
+      console.log(res);
       const { data: getURL } = res;
       this.setState({ getURL });
     });
