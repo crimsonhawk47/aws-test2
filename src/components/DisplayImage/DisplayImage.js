@@ -17,10 +17,10 @@ export default class DisplayImage extends Component {
     };
 
     
-    axios.get(generateGetUrl, {}, options).then(res => {
+    axios.get(generateGetUrl, options).then(res => {
       console.log(`IN GETURL`);
       console.log(res);
-      const { data: getURL } = res;
+      const getURL = res.data;
       this.setState({ getURL });
     });
   };

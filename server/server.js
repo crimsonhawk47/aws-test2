@@ -50,9 +50,15 @@ app.get('/generate-get-url', (req, res) => {
   // Both Key and ContentType are defined in the client side.
   // Key refers to the remote name of the file.
   console.log(`IN GET URL`);
+  const { Key } = req.query;
+  console.log(Key);
+  console.log(req.query);
+  console.log(req.params);
+  console.log(req.taco);
+
   
-  const { Key } = req.params;
-  console.log(req);
+  
+  
   
   generateGetUrl(Key)
     .then(getURL => {      
