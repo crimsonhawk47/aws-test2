@@ -17,11 +17,11 @@ export default class Uploader extends Component {
   uploadFile = e => {
     e.preventDefault();
     const { file } = this.state;
+    
     this.setState({message:'Uploading...'})
     const contentType = file.type; // eg. image/jpeg or image/svg+xml
 
-    const generatePutUrl = `http://localhost:5000/generate-put-url`;
-    console.log(`content type is ${contentType}`);
+    const generatePutUrl = `http://localhost:5000/generate-put-url`;    
     
     const options = {
       params: {
@@ -33,9 +33,8 @@ export default class Uploader extends Component {
       }
     };
 
-    axios.put(generatePutUrl, {}, options).then(res => {
-      console.log(res);
-      
+    axios.get(generatePutUrl, options).then(res => {
+  
       const {
         data: { putURL: signedURL }
       } = res;
@@ -50,8 +49,7 @@ export default class Uploader extends Component {
         })
         .catch(err => {
           this.setState({message:'Sorry, something went wrong'})
-          console.log('err', err);
-          console.log(options);
+          console.log('error: ', err);
           
         });
     });

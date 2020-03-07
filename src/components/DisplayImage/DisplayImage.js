@@ -4,8 +4,8 @@ import axios from 'axios';
 export default class DisplayImage extends Component {
   state = { message: '' };
 
-  formHandler = e => {
-    e.preventDefault();
+  formHandler = event => {
+    event.preventDefault();
     this.setState({ message: 'Loading...' });
     const filename = document.querySelector('#filename').value;
     const generateGetUrl = 'http://localhost:5000/generate-get-url';
